@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coordinates</title>
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+    }
+    .box {
+      background-color: beige;
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+    }
+    .buttonbox {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+    button {
+      background-color: white;
+    }
+    .special {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box special"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="buttonbox">
+    <button class="scrollBy">Scroll by 100px(y)</button>
+    <button class="scrollTo">Scroll to 100px(y)</button>
+    <button class="scrollSpecial">Scroll into special</button>
+  </div>
+  
+  <script>
+    const box = document.querySelectorAll(".box");
+    for(let i = 0; i < box.length; i++) {
+      box[i].addEventListener('click', (e) => {
+        box[i].style.backgroundColor = 'pink';
+        console.log(box[i].getBoundingClientRect());
+        console.log(`client: ${e.clientX}, ${e.clientY}`);
+        console.log(`page: ${e.pageX}, ${e.pageY}`);
+      })
+    }
+    const scrollby = document.querySelector(".scrollBy");
+    scrollby.addEventListener('click', () => {
+      window.scrollBy(0, 100);
+    });
+    const scrollto = document.querySelector(".scrollTo");
+    scrollto.addEventListener('click', () => {
+      window.scrollTo(0, 100);
+    })
+    const scrollspecial = document.querySelector(".scrollSpecial");
+    const special = document.querySelector('.special');
+    scrollspecial.addEventListener('click', () => {
+      special.scrollIntoView();
+    })
+
+  </script>
+</body>
+</html>
