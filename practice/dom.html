@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      section {
+        width: 50%;
+        margin: 50px auto;
+        background-color: brown;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      img {
+        z-index: 100;
+        will-change: opacity;
+        width: 200px;
+        border: 1px solid #fff;
+        border-radius: 30px;
+      }
+      h1,
+      h3,
+      span {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="../img/rabbit.png" alt="rabbit">
+      <h1 id="brand">Dream Coding</h1>
+      <h3>Don't forget to code your dream</h3>
+    </section>
+    <span>Hello World!</span>
+    <script>
+      const image = document.querySelector('img');
+      console.log(image);
+      // queryselector은 처음에 찾아진 element를 return한다.
+      // getElementbyId는 id요소만 가져와야하지만 querySelector은 속성값도 줄 수 있고, 클래스.아이디 등 다양하게 가져올 수 있다. 유연하게 쓸 수 있다는 장점이 있다.
+      // querySelectorAll은 전부 다 가져오는 api
+
+      // DOM요소 추가하고 삭제하기
+      const section = document.querySelector('section');
+
+      // 태그 만들기
+      const h2 = document.createElement('h2'); // 태그추가하기
+      h2.setAttribute('class', 'title'); // <h2 class="title"></h2> // 속성추가하기
+      h2.textContent = 'This is a title'; // <h2 class="title">This is a title</h2> // 태그 안에 텍스트 넣기
+
+      //새로운 자식요소 노드 추가 - 제일 끝부분에서 추가
+      section.appendChild(h2);
+
+      // 중간에 노드 추가
+      const h3 = document.querySelector('h3');
+      section.insertBefore(h2, h3); // insertBefore은 추가하고자 하고 있는 요소가 이미 존재한다면, 위치를 옮겨주는 역할을 한다.
+    </script>
+  </body>
+</html>
